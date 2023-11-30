@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "bikenbiker",
+  "private_key_id": "6548069f053c336a3c61a9e273b6ea7b6567367b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEugIBADANBgkqhkiG9w0BAQEFAASCBKQwggSgAgEAAoIBAQDNTpRdaHOijC+I\nNENIjaEiWws0QT/ALjx6aKEL+6X/3d3M9L2O4+ECi8rnP0OC7esbbEYUD8Wx3910\nFSA1dTFS5Sj67u21luPJTmB76PcUxFu7RgZjshJuTAtJq+oO3TPCvMoLRfl95C7/\n2HKS2SSCGXQXX7HMer6kjNlAfGlWOwxbroRLn0z/m5Tdi67pxCm34qC3qOPKXb4/\ni0aEumxNKHLPuzcZC+9ofn+T8Uj0v/jfnCxeLf8dNjyXJJjzOVCCwGU/gl2lR/GL\nviZNIW5dJ2MOkRp8oxxw9RglqWkTHsgCOqrGdwoGqr+ESYQUqqm4wXpzI6jKTd7d\n4sAxGj/1AgMBAAECggEAD8ccrssCq/jDBGAj1ZUQz4+YnlTvXckP28ZjrgSSXsYB\nsCkU0kDf/26X0sqxWQQIv+xDvHHz2vYd0jh3Z7RQbJLw4cvv17c3XTaZQpyGNIHc\nnNlGT24VbYWJjolYLPlB65LPoisn/81D8WSEdZWbcSYcnlk71D+QnBu47HRDMh2n\nWdIqR4tziU6/uxuF5CSBARLQSjCTKLRvl+upv8j5DqyoGffc3jB2DdnpQ0G8ornF\njFAOSYBcKq3NQ3BJAMn94Aw99rL4n0lG/JTz7Udubekj4sM8ChCf3vTqAhj0hOHs\nCgLYVRszxSrl/UiZJPwy/3PEaZSz6+Su1+HE37AcRwKBgQDnjYKH53c8WlxYxj8k\n0kFq3ZEFSQPXwktErr6Yd40YlRmSuovJ0O3LbsRs8liKuYhFfUfFiZh8C95hFf8m\ndK0i0QNu72OOC5s0ux+TqwsODzTMZbH636NyjV5KFmjUHIVkeBcyZwG1GKchVKKi\n3Sw1P12v/T4ax9LLoejRL+XaXwKBgQDi+7A2WdoW29+mIKN7ftnvY/kLbwHkzYMs\nQxgte3bvc44jEaeLRKUHN0HOQfzHqXhkXb/zXppBhZcxeCwo3WUIJ7THMpEO3ocV\nuM8jr+uKzjX/f9IylSmmz0s5W+D3emBP2MbeKQtPEMxIWip0QrwwBno9HOouFzAx\nK1L5Ei6uKwKBgBvpdv6i7ECeM9uPqjTqE3CqXLziXFA535Db76W5Y4y/DGIfkpI1\nWTTYmVz4qauvSbn2rBwnxfXOCHRzjlo4XlaAE4Xf3YRV6dOlat0GFUMQmjC5YYb4\nRl+cou0TXneTKJE/2Kv+trn5ysu9xA0V1CpnBQgd4sqfo81gKwxsVazJAoGASa5e\nAyajruvs66aIqxwAbr9LJrUALl+wBvw4qvr7HruqFiQy+PhtgawkRmoRPlb658mu\n97dr530QGVTjMNi9ZSpOeqMlh2gg/aIiS3ldwo8x5CCAAT9+Z9G+n339xxgIj6LU\n22UDcMUJKytpwJexMv3HTHNIaXHJiQyBQKzwTkUCf011RmB8Me2gKpkUTIlqdhed\nQOIxd7g/oI00BpsGYMp7ehHn0BfrdTUsl5DJVmJp5SLb0/g3qfFeJza0YYFAJ/qa\niVtw35aY9LyVIE877HNPbfVZN9kyQHZp4/SVDTSlngbPp9TTN1At2AfJcM5TbeTt\nM/FOYCSL94g6iUR2iMQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "bikenbiker@bikenbiker.iam.gserviceaccount.com",
+  "client_id": "108855814253182088022",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/bikenbiker%40bikenbiker.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
