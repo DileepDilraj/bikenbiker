@@ -51,3 +51,44 @@
     height: auto;
   }
   
+
+  .googleSignInButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    color: #757575;
+    border: 1px solid #757575;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .googleSignInButton:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .googleIcon {
+    width: 20px; /* Adjust size as needed */
+    height: 20px; /* Adjust size as needed */
+    margin-right: 10px;
+  }
+  .languageButton {
+    border: 1px solid #fff;
+    background-color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .languageButton img {
+    width: 20px;
+    margin-right: 10px;
+  }
+  .buttonGroup {
+    display: flex;
+    align-items: center;
+  }
+  

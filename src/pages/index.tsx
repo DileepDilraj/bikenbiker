@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { signIn } from 'next-auth/react';
+import { getAuth, onAuthStateChanged, signOut, User } from 'firebase/auth';
+import { signInWithGoogle } from '../firebase/auth';
 import styles from '../assets/styles/Home.module.css';
-import { changeLanguage } from 'i18next';
 
 // Define the structure of your product data
 interface Product {
@@ -12,59 +12,67 @@ interface Product {
   price: number;
 }
 
-
-
 const Home: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
-
-  const changeLanguage = (lang: string) => {
-    // Translations (you would expand this with more translations)
-const translations = {
-  en: {
-    signIn: "Continue with Google",
-    // ... other translations
-  },
-  hi: {
-    signIn: "Google के साथ जारी रखें",
-    // ... other translations
-  },
-  ru: {
-    signIn: "Продолжить с Google",
-    // ... other translations
-  },
-};
-  };
+  const [user, setUser] = useState<User | null>(null);
+  const [language, setLanguage] = useState('en'); // 'en' for English, 'hi' for Hindi
 
   useEffect(() => {
-    // Replace with your SheetDB API endpoint
-    const url = "https://sheetdb.io/api/v1/687ysmx95i8y9";
+    const apiUrl = language === 'en' 
+      ? "https://sheetdb.io/api/v1/687ysmx95i8y9" 
+      : "https://sheetdb.io/api/v1/1gjhn2ruw1r25";
 
-    fetch(url)
+    fetch(apiUrl)
       .then(response => response.json())
-      .then(data => {
-        // Assuming the data is in the format that matches the Product interface
-        setProducts(data);
-      })
+      .then(data => setProducts(data))
       .catch(error => console.error('Error fetching data:', error));
-  }, []);
+
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    // Cleanup subscription on unmount
+    return () => unsubscribe();
+  }, [language]);
+
+  const handleSignOut = () => {
+    const auth = getAuth();
+    signOut(auth).then(() => {
+      setUser(null);
+    }).catch((error: any) => {
+      console.error('Sign out error:', error);
+    });
+  };
+
+  const handleLanguageChange = (lang: string) => {
+    setLanguage(lang);
+  };
 
   return (
     <div className={styles.container}>
-    <header className={styles.header}>
+      <header className={styles.header}>
         <img src="https://www.bikenbiker.com/cdn/shop/files/BnbNew.png" alt="Logo" className={styles.logo} />
-
         <div className={styles.buttonGroup}>
-          <button onClick={() => signIn('google')} className={styles.loginButton}>
-            Continue with Google
+          <button onClick={() => handleLanguageChange('hi')} className={styles.languageButton}>
+            <img src="https://uxwing.com/wp-content/themes/uxwing/download/flags-landmarks/india-flag-icon.png" alt="Hindi" />
+             
           </button>
-
-          <button onClick={() => changeLanguage('hi')} className={styles.flagButton}>
-            <img  width={50} src="https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/2560px-Flag_of_India.svg.png" alt="Switch to Hindi" />
+          <button onClick={() => handleLanguageChange('en')} className={styles.languageButton}>
+            <img src="https://uxwing.com/wp-content/themes/uxwing/download/flags-landmarks/united-states-flag-icon.png" alt="English" />
+             
           </button>
-
-          <button onClick={() => changeLanguage('ru')} className={styles.flagButton}>
-            <img  width={50} src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/640px-Flag_of_Russia.svg.png" alt="Switch to Russian" />
-          </button>
+          {user ? (
+            <button onClick={handleSignOut} className={styles.googleSignInButton}>
+              <img src="https://icon-library.com/images/icon-logout/icon-logout-13.jpg" alt="Logout" className={styles.googleIcon} />
+              Logout from {user.displayName?.split(' ')[0] ?? 'User'}
+            </button>
+          ) : (
+            <button onClick={signInWithGoogle} className={styles.googleSignInButton}>
+              <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="Google sign-in" className={styles.googleIcon} />
+              Sign in with Google
+            </button>
+          )}
         </div>
       </header>
 
@@ -81,6 +89,5 @@ const translations = {
     </div>
   );
 };
-
 
 export default Home;
